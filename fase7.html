@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>NEMESIS - LEVEL 7</title>
+    <style>
+        body { 
+            background-color: #000; 
+            color: #fff; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            font-family: 'Courier New', Courier, monospace; 
+        }
+        .enigma-container { text-align: center; }
+        
+        .formula { 
+            font-size: 2.5rem; 
+            letter-spacing: 5px; 
+            margin-bottom: 40px;
+            color: #eee;
+        }
+
+        input { background-color: #000; border: 1px solid #222; color: #444; padding: 12px; text-align: center; outline: none; width: 250px; }
+        button { background-color: #050505; color: #222; border: 1px solid #111; padding: 10px 20px; cursor: pointer; margin-top: 10px; }
+        button:hover { color: #555; }
+    </style>
+</head>
+<body>
+
+    <div class="enigma-container">
+        <p style="color: #111;">LEVEL 7</p>
+
+        <div class="formula">
+            C = 2πr
+        </div>
+
+        <form id="quiz-form">
+            <input type="text" id="answer" placeholder="SENHA" autocomplete="off" required>
+            <br>
+            <button type="submit">SUBMETER</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('quiz-form').onsubmit = function(e) {
+            e.preventDefault();
+            const tentativa = document.getElementById('answer').value.toLowerCase().trim();
+            
+            // RESPOSTA: circunferência
+            const respostaCerta = "circunferência"; 
+            const respostaSemAcento = "circunferencia"; // Para não travar o jogador por causa do acento
+
+            if (tentativa === respostaCerta || tentativa === respostaSemAcento) {
+                window.location.href = "fase8.html";
+            } else {
+                alert("ERRADO, DESISTA.");
+                document.getElementById('answer').value = "";
+            }
+        };
+    </script>
+</body>
+</html>

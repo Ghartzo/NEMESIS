@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>NEMESIS - LEVEL 4</title>
+    <style>
+        body { 
+            background-color: #000; 
+            color: #fff; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            font-family: 'Courier New', Courier, monospace; 
+        }
+        .enigma-container { text-align: center; }
+        
+        .pista-link { margin-bottom: 15px; }
+        .pista-link a { color: #fff; text-decoration: none; font-size: 14px; }
+        
+        .timestamp { margin-bottom: 20px; font-size: 18px; }
+
+        .hash { 
+            color: #888; 
+            font-size: 16px; 
+            margin-bottom: 30px;
+        }
+
+        .chave-invertida { 
+            color: #111; /* Quase invisível no fundo preto */
+            font-size: 12px; 
+            margin-top: 60px;
+        }
+
+        input { background-color: #000; border: 1px solid #222; color: #444; padding: 12px; text-align: center; outline: none; width: 250px; }
+        button { background-color: #050505; color: #222; border: 1px solid #111; padding: 10px 20px; cursor: pointer; margin-top: 10px; }
+        button:hover { color: #555; }
+    </style>
+</head>
+<body>
+
+    <div class="enigma-container">
+        <p style="color: #111;">LEVEL 4</p>
+        
+        <div class="pista-link">
+            <a href="https://www.youtube.com/watch?v=odeHP8N4LKc" target="_blank">https://www.youtube.com/watch?v=odeHP8N4LKc</a>
+        </div>
+
+        <div class="timestamp">05:29</div>
+
+        <div class="hash">HTBxZ5876dCZw17o0IiMJw</div>
+
+        <form id="quiz-form">
+            <input type="text" id="answer" placeholder="SENHA" autocomplete="off" required>
+            <br>
+            <button type="submit">SUBMETER</button>
+        </form>
+
+        <div class="chave-invertida">ɐzǝɹqod</div>
+    </div>
+
+    <script>
+        document.getElementById('quiz-form').onsubmit = function(e) {
+            e.preventDefault();
+            const tentativa = document.getElementById('answer').value.toLowerCase().trim();
+            
+            // SENHA: eu não posso desaparecer
+            const respostaCerta = "eu não posso desaparecer"; 
+
+            if (tentativa === respostaCerta) {
+                window.location.href = "fase5.html";
+            } else {
+                alert("NADA.");
+                document.getElementById('answer').value = "";
+            }
+        };
+    </script>
+</body>
+</html>

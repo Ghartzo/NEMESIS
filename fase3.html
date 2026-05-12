@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>NEMESIS - LEVEL 3</title>
+    <style>
+        body { 
+            background-color: #000; 
+            color: #fff; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            font-family: 'Courier New', Courier, monospace; 
+        }
+        .enigma-container { text-align: center; max-width: 600px; }
+        
+        .tap-code { 
+            letter-spacing: 5px; 
+            margin: 30px 0; 
+            color: #888; 
+            font-size: 1.2rem;
+        }
+
+        .hint-text { color: #333; font-size: 14px; margin: 10px 0; }
+        .reversed { color: #111; font-size: 10px; margin-top: 50px; }
+
+        input { background-color: #000; border: 1px solid #222; color: #444; padding: 12px; text-align: center; outline: none; width: 250px; }
+        button { background-color: #050505; color: #222; border: 1px solid #111; padding: 10px 20px; cursor: pointer; margin-top: 10px; }
+        button:hover { color: #555; }
+    </style>
+</head>
+<body>
+
+    <div class="enigma-container">
+        <p style="color: #1a1a1a;">LEVEL 3</p>
+        
+        <div class="hint-text">FILME</div>
+
+        <div class="tap-code">
+            .. .  . .....  ... .  .. ....  ... .....  . .....  ... ...  . .....  .... ....  ... ....
+        </div>
+
+        <form id="quiz-form">
+            <input type="text" id="answer" placeholder="SENHA" autocomplete="off" required>
+            <br>
+            <button type="submit">SUBMETER</button>
+        </form>
+
+        <div class="reversed">edadilanoican</div>
+    </div>
+
+    <script>
+        document.getElementById('quiz-form').onsubmit = function(e) {
+            e.preventDefault();
+            const tentativa = document.getElementById('answer').value.toLowerCase().trim();
+            
+            // RESPOSTA: cidade de deus
+            const respostaCerta = "cidade de deus"; 
+
+            if (tentativa === respostaCerta) {
+                window.location.href = "fase4.html";
+            } else {
+                alert("O CAMINHO ESTÁ ERRADO.");
+                document.getElementById('answer').value = "";
+            }
+        };
+    </script>
+</body>
+</html>

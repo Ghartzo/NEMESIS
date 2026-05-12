@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>NEMESIS - FINAL LEVEL</title>
+    <style>
+        body { 
+            background-color: #000; 
+            color: #fff; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0; 
+            font-family: 'Courier New', Courier, monospace; 
+        }
+        .enigma-container { text-align: center; }
+        
+        .video-link { margin-bottom: 20px; }
+        .video-link a { color: #333; text-decoration: none; font-size: 14px; transition: color 0.5s; }
+        .video-link a:hover { color: #fff; }
+
+        .comando { 
+            font-size: 1.2rem; 
+            letter-spacing: 10px; 
+            margin-bottom: 40px;
+            color: #111; /* Quase invisível */
+        }
+
+        input { background-color: #000; border: 1px solid #111; color: #333; padding: 12px; text-align: center; outline: none; width: 250px; }
+        button { background-color: #050505; color: #111; border: 1px solid #050505; padding: 10px 20px; cursor: pointer; margin-top: 10px; }
+        button:hover { color: #444; border-color: #222; }
+    </style>
+</head>
+<body>
+
+    <div class="enigma-container">
+        <p style="color: #050505;">THE END</p>
+
+        <div class="video-link">
+            <a href="https://youtu.be/w15oWDh02K4?si=YGe0MxTJKFQp-nDN" target="_blank">https://youtu.be/w15oWDh02K4</a>
+        </div>
+
+        <div class="comando">TRADUZA</div>
+
+        <form id="quiz-form">
+            <input type="text" id="answer" placeholder="SENHA" autocomplete="off" required>
+            <br>
+            <button type="submit">SUBMETER</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('quiz-form').onsubmit = function(e) {
+            e.preventDefault();
+            const tentativa = document.getElementById('answer').value.toLowerCase().trim();
+            
+            // RESPOSTA: ame sempre
+            const respostaCerta = "ame sempre"; 
+
+            if (tentativa === respostaCerta) {
+                // Redireciona para uma página de vitória ou mensagem final
+                window.location.href = "vitoria.html";
+            } else {
+                alert("NÃO É O BASTANTE.");
+                document.getElementById('answer').value = "";
+            }
+        };
+    </script>
+</body>
+</html>

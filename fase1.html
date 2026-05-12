@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEMESIS - LEVEL 1</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .enigma-container {
+            text-align: center;
+        }
+
+        img {
+            max-width: 600px; /* Ajuste o tamanho da imagem se necessário */
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        input {
+            background-color: #000;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 12px;
+            text-align: center;
+            outline: none;
+            width: 250px;
+            text-transform: lowercase; /* Força o texto para minúsculo */
+        }
+
+        button {
+            background-color: #111;
+            color: #444;
+            border: 1px solid #333;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: color 0.3s;
+        }
+
+        button:hover {
+            color: #fff;
+            background-color: #222;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="enigma-container">
+        <p>LEVEL 1</p>
+        
+        <img src="pista.png" alt="Pista visual">
+
+        <form id="quiz-form">
+            <input type="text" id="answer" placeholder="SENHA" autocomplete="off" required>
+            <br>
+            <button type="submit">SUBMETER</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('quiz-form');
+        
+        form.onsubmit = function(e) {
+            e.preventDefault(); // Impede a página de recarregar
+            
+            const tentativa = document.getElementById('answer').value.toLowerCase().trim();
+            
+            // A RESPOSTA DEFINIDA
+            const respostaCerta = "sadismo"; 
+
+            if (tentativa === respostaCerta) {
+                // Se acertar, vai para a fase2.html
+                window.location.href = "fase2.html";
+            } else {
+                // Se errar, mostra o aviso e limpa o campo
+                alert("ERRADO. TENTE NOVAMENTE.");
+                document.getElementById('answer').value = "";
+            }
+        };
+    </script>
+</body>
+</html>
